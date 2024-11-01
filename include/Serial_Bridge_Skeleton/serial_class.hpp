@@ -17,9 +17,9 @@ struct CommunicationData {
   uint8_t start_byte;
 
   // Twist For Base
-  uint8_t x;
-  uint8_t y;
-  uint8_t omega;
+  float x;
+  float y;
+  float omega;
 
   // Vector For Shooter
   uint8_t ax;
