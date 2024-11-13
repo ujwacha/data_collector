@@ -28,7 +28,7 @@ class Sayer : public rclcpp::Node {
 
 public:
   Sayer(const rclcpp::NodeOptions &options)
-      : rclcpp::Node("NodeName", options), s("/dev/ttyACM0") {
+      : rclcpp::Node("NodeName", options), s("/dev/ttyUSB0") {
 
     const rclcpp::QoS currentqol = rclcpp::QoS(10).best_effort();
 
@@ -44,7 +44,7 @@ public:
                                                            currentqol);
 
     subscription1 = this->create_subscription<geometry_msgs::msg::Twist>(
-        "sub1", currentqol,
+        "cmd_vel", currentqol,
         std::bind(&Sayer::sub1fun, this, std::placeholders::_1));
 
     subscription2 = this->create_subscription<geometry_msgs::msg::Vector3>(
@@ -70,6 +70,9 @@ public:
   }
 
   void get_data() {
+
+    return; // don't want to recieve data for now
+
     CommunicationData c;
     try {
       c = s.attempt_get_non_blocking();
@@ -129,6 +132,9 @@ public:
   }
 
   void sub1fun(const geometry_msgs::msg::Twist::UniquePtr msg) {
+
+    RCLCPP_INFO(this->get_logger(), "sent 10000 messages");
+
     glosend.x = msg->linear.x;
     glosend.y = msg->linear.y;
     glosend.omega = msg->angular.z;
@@ -167,6 +173,9 @@ public:
     make_sendable_with_metadata(glosend);
     try {
       s.attempt_send_probably_blocking(glosend); // it will always return 1 as it is turned into sendable data already
+
+      RCLCPP_INFO(this->get_logger(), "Sent Data Through Serial");
+
     } catch (int i) {
       switch (i) {
       case -1:
@@ -214,12 +223,11 @@ private:
   CommunicationData glosend;
 };
 
-} // namespace Serial_Bridge_Skeleton
+} //namespace //Serial_Bridge_Skeleton;
 
 // RCLCPP_COMPONENTS_REGISTER_NODE(Serial_Bridge_Skeleton::Sayer);
 
 int main(int argc, char *argv[]) {
-
   rclcpp::init(argc, argv);
 
   rclcpp::NodeOptions options = rclcpp::NodeOptions();
@@ -227,8 +235,6 @@ int main(int argc, char *argv[]) {
   rclcpp::spin(std::make_shared<Serial_Bridge_Skeleton::Sayer>(options));
 
   rclcpp::shutdown();
-
- 
  
   return 0;
 }

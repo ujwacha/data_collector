@@ -21,7 +21,8 @@ include_directories(${SERIAL_INCLUDE_DIR})
 
 # Add include directories
 
-#add_library(Serial_Skili_component SHARED src/main.cpp)
+# add_library(Serial_Skili_component SHARED src/main.cpp)
+
 add_executable(Serial_Skili_component src/main.cpp)
 #target_compile_definitions(Serial_Skili PRIVATE "COMPOSITION_BUILDING_DLL")
 
@@ -44,13 +45,13 @@ target_link_libraries(Serial_Skili_component serial)
 
 
 
-# install(TARGETS
-#   Serial_Skili_component 
-#   EXPORT export_Serial_Skili_component
-#   ARCHIVE DESTINATION lib
-#   LIBRARY DESTINATION lib
-#   RUNTIME DESTINATION bin
-#   )
+install(TARGETS
+  Serial_Skili_component 
+# EXPORT export_Serial_Skili_component
+  ARCHIVE DESTINATION lib
+  LIBRARY DESTINATION lib
+  RUNTIME DESTINATION bin
+  )
 
 
 install(DIRECTORY
