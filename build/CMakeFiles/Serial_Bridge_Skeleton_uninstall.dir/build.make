@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/light/robocon2025/ROS/src/Serial_Bridge_Skeleton
+CMAKE_SOURCE_DIR = /home/null/stuff/robocon_2025/Serial_Bridge_Skeleton
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/light/robocon2025/ROS/src/Serial_Bridge_Skeleton/build
+CMAKE_BINARY_DIR = /home/null/stuff/robocon_2025/Serial_Bridge_Skeleton/build
 
 # Utility rule file for Serial_Bridge_Skeleton_uninstall.
 
@@ -67,7 +67,7 @@ include CMakeFiles/Serial_Bridge_Skeleton_uninstall.dir/compiler_depend.make
 include CMakeFiles/Serial_Bridge_Skeleton_uninstall.dir/progress.make
 
 CMakeFiles/Serial_Bridge_Skeleton_uninstall:
-	/usr/bin/cmake -P /home/light/robocon2025/ROS/src/Serial_Bridge_Skeleton/build/ament_cmake_uninstall_target/ament_cmake_uninstall_target.cmake
+	/usr/bin/cmake -P /home/null/stuff/robocon_2025/Serial_Bridge_Skeleton/build/ament_cmake_uninstall_target/ament_cmake_uninstall_target.cmake
 
 Serial_Bridge_Skeleton_uninstall: CMakeFiles/Serial_Bridge_Skeleton_uninstall
 Serial_Bridge_Skeleton_uninstall: CMakeFiles/Serial_Bridge_Skeleton_uninstall.dir/build.make
@@ -82,6 +82,6 @@ CMakeFiles/Serial_Bridge_Skeleton_uninstall.dir/clean:
 .PHONY : CMakeFiles/Serial_Bridge_Skeleton_uninstall.dir/clean
 
 CMakeFiles/Serial_Bridge_Skeleton_uninstall.dir/depend:
-	cd /home/light/robocon2025/ROS/src/Serial_Bridge_Skeleton/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/light/robocon2025/ROS/src/Serial_Bridge_Skeleton /home/light/robocon2025/ROS/src/Serial_Bridge_Skeleton /home/light/robocon2025/ROS/src/Serial_Bridge_Skeleton/build /home/light/robocon2025/ROS/src/Serial_Bridge_Skeleton/build /home/light/robocon2025/ROS/src/Serial_Bridge_Skeleton/build/CMakeFiles/Serial_Bridge_Skeleton_uninstall.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/null/stuff/robocon_2025/Serial_Bridge_Skeleton/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/null/stuff/robocon_2025/Serial_Bridge_Skeleton /home/null/stuff/robocon_2025/Serial_Bridge_Skeleton /home/null/stuff/robocon_2025/Serial_Bridge_Skeleton/build /home/null/stuff/robocon_2025/Serial_Bridge_Skeleton/build /home/null/stuff/robocon_2025/Serial_Bridge_Skeleton/build/CMakeFiles/Serial_Bridge_Skeleton_uninstall.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/Serial_Bridge_Skeleton_uninstall.dir/depend
 

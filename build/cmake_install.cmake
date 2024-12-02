@@ -1,4 +1,4 @@
-# Install script for directory: /home/light/robocon2025/ROS/src/Serial_Bridge_Skeleton
+# Install script for directory: /home/null/stuff/robocon_2025/Serial_Bridge_Skeleton
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -49,7 +49,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/Serial_Skili_component"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/light/robocon2025/ROS/src/Serial_Bridge_Skeleton/build/Serial_Skili_component")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/null/stuff/robocon_2025/Serial_Bridge_Skeleton/build/Serial_Skili_component")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/Serial_Skili_component" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/Serial_Skili_component")
     file(RPATH_CHANGE
@@ -63,15 +63,15 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/Serial_Bridge_Skeleton" TYPE DIRECTORY FILES "/home/light/robocon2025/ROS/src/Serial_Bridge_Skeleton/launch")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/Serial_Bridge_Skeleton" TYPE DIRECTORY FILES "/home/null/stuff/robocon_2025/Serial_Bridge_Skeleton/launch")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/package_run_dependencies" TYPE FILE FILES "/home/light/robocon2025/ROS/src/Serial_Bridge_Skeleton/build/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/Serial_Bridge_Skeleton")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/package_run_dependencies" TYPE FILE FILES "/home/null/stuff/robocon_2025/Serial_Bridge_Skeleton/build/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/Serial_Bridge_Skeleton")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/parent_prefix_path" TYPE FILE FILES "/home/light/robocon2025/ROS/src/Serial_Bridge_Skeleton/build/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/Serial_Bridge_Skeleton")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/parent_prefix_path" TYPE FILE FILES "/home/null/stuff/robocon_2025/Serial_Bridge_Skeleton/build/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/Serial_Bridge_Skeleton")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -79,7 +79,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/Serial_Bridge_Skeleton/environment" TYPE FILE FILES "/home/light/robocon2025/ROS/src/Serial_Bridge_Skeleton/build/ament_cmake_environment_hooks/ament_prefix_path.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/Serial_Bridge_Skeleton/environment" TYPE FILE FILES "/home/null/stuff/robocon_2025/Serial_Bridge_Skeleton/build/ament_cmake_environment_hooks/ament_prefix_path.dsv")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -87,42 +87,42 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/Serial_Bridge_Skeleton/environment" TYPE FILE FILES "/home/light/robocon2025/ROS/src/Serial_Bridge_Skeleton/build/ament_cmake_environment_hooks/path.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/Serial_Bridge_Skeleton/environment" TYPE FILE FILES "/home/null/stuff/robocon_2025/Serial_Bridge_Skeleton/build/ament_cmake_environment_hooks/path.dsv")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/Serial_Bridge_Skeleton" TYPE FILE FILES "/home/light/robocon2025/ROS/src/Serial_Bridge_Skeleton/build/ament_cmake_environment_hooks/local_setup.bash")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/Serial_Bridge_Skeleton" TYPE FILE FILES "/home/null/stuff/robocon_2025/Serial_Bridge_Skeleton/build/ament_cmake_environment_hooks/local_setup.bash")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/Serial_Bridge_Skeleton" TYPE FILE FILES "/home/light/robocon2025/ROS/src/Serial_Bridge_Skeleton/build/ament_cmake_environment_hooks/local_setup.sh")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/Serial_Bridge_Skeleton" TYPE FILE FILES "/home/null/stuff/robocon_2025/Serial_Bridge_Skeleton/build/ament_cmake_environment_hooks/local_setup.sh")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/Serial_Bridge_Skeleton" TYPE FILE FILES "/home/light/robocon2025/ROS/src/Serial_Bridge_Skeleton/build/ament_cmake_environment_hooks/local_setup.zsh")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/Serial_Bridge_Skeleton" TYPE FILE FILES "/home/null/stuff/robocon_2025/Serial_Bridge_Skeleton/build/ament_cmake_environment_hooks/local_setup.zsh")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/Serial_Bridge_Skeleton" TYPE FILE FILES "/home/light/robocon2025/ROS/src/Serial_Bridge_Skeleton/build/ament_cmake_environment_hooks/local_setup.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/Serial_Bridge_Skeleton" TYPE FILE FILES "/home/null/stuff/robocon_2025/Serial_Bridge_Skeleton/build/ament_cmake_environment_hooks/local_setup.dsv")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/Serial_Bridge_Skeleton" TYPE FILE FILES "/home/light/robocon2025/ROS/src/Serial_Bridge_Skeleton/build/ament_cmake_environment_hooks/package.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/Serial_Bridge_Skeleton" TYPE FILE FILES "/home/null/stuff/robocon_2025/Serial_Bridge_Skeleton/build/ament_cmake_environment_hooks/package.dsv")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/packages" TYPE FILE FILES "/home/light/robocon2025/ROS/src/Serial_Bridge_Skeleton/build/ament_cmake_index/share/ament_index/resource_index/packages/Serial_Bridge_Skeleton")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/packages" TYPE FILE FILES "/home/null/stuff/robocon_2025/Serial_Bridge_Skeleton/build/ament_cmake_index/share/ament_index/resource_index/packages/Serial_Bridge_Skeleton")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/Serial_Bridge_Skeleton/cmake" TYPE FILE FILES
-    "/home/light/robocon2025/ROS/src/Serial_Bridge_Skeleton/build/ament_cmake_core/Serial_Bridge_SkeletonConfig.cmake"
-    "/home/light/robocon2025/ROS/src/Serial_Bridge_Skeleton/build/ament_cmake_core/Serial_Bridge_SkeletonConfig-version.cmake"
+    "/home/null/stuff/robocon_2025/Serial_Bridge_Skeleton/build/ament_cmake_core/Serial_Bridge_SkeletonConfig.cmake"
+    "/home/null/stuff/robocon_2025/Serial_Bridge_Skeleton/build/ament_cmake_core/Serial_Bridge_SkeletonConfig-version.cmake"
     )
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/Serial_Bridge_Skeleton" TYPE FILE FILES "/home/light/robocon2025/ROS/src/Serial_Bridge_Skeleton/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/Serial_Bridge_Skeleton" TYPE FILE FILES "/home/null/stuff/robocon_2025/Serial_Bridge_Skeleton/package.xml")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -133,5 +133,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/light/robocon2025/ROS/src/Serial_Bridge_Skeleton/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/null/stuff/robocon_2025/Serial_Bridge_Skeleton/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

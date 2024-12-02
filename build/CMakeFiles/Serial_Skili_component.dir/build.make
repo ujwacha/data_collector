@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/light/robocon2025/ROS/src/Serial_Bridge_Skeleton
+CMAKE_SOURCE_DIR = /home/null/stuff/robocon_2025/Serial_Bridge_Skeleton
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/light/robocon2025/ROS/src/Serial_Bridge_Skeleton/build
+CMAKE_BINARY_DIR = /home/null/stuff/robocon_2025/Serial_Bridge_Skeleton/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Serial_Skili_component.dir/depend.make
@@ -70,18 +70,18 @@ include CMakeFiles/Serial_Skili_component.dir/progress.make
 include CMakeFiles/Serial_Skili_component.dir/flags.make
 
 CMakeFiles/Serial_Skili_component.dir/src/main.cpp.o: CMakeFiles/Serial_Skili_component.dir/flags.make
-CMakeFiles/Serial_Skili_component.dir/src/main.cpp.o: /home/light/robocon2025/ROS/src/Serial_Bridge_Skeleton/src/main.cpp
+CMakeFiles/Serial_Skili_component.dir/src/main.cpp.o: /home/null/stuff/robocon_2025/Serial_Bridge_Skeleton/src/main.cpp
 CMakeFiles/Serial_Skili_component.dir/src/main.cpp.o: CMakeFiles/Serial_Skili_component.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/light/robocon2025/ROS/src/Serial_Bridge_Skeleton/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Serial_Skili_component.dir/src/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Serial_Skili_component.dir/src/main.cpp.o -MF CMakeFiles/Serial_Skili_component.dir/src/main.cpp.o.d -o CMakeFiles/Serial_Skili_component.dir/src/main.cpp.o -c /home/light/robocon2025/ROS/src/Serial_Bridge_Skeleton/src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/null/stuff/robocon_2025/Serial_Bridge_Skeleton/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Serial_Skili_component.dir/src/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Serial_Skili_component.dir/src/main.cpp.o -MF CMakeFiles/Serial_Skili_component.dir/src/main.cpp.o.d -o CMakeFiles/Serial_Skili_component.dir/src/main.cpp.o -c /home/null/stuff/robocon_2025/Serial_Bridge_Skeleton/src/main.cpp
 
 CMakeFiles/Serial_Skili_component.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Serial_Skili_component.dir/src/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/light/robocon2025/ROS/src/Serial_Bridge_Skeleton/src/main.cpp > CMakeFiles/Serial_Skili_component.dir/src/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/null/stuff/robocon_2025/Serial_Bridge_Skeleton/src/main.cpp > CMakeFiles/Serial_Skili_component.dir/src/main.cpp.i
 
 CMakeFiles/Serial_Skili_component.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Serial_Skili_component.dir/src/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/light/robocon2025/ROS/src/Serial_Bridge_Skeleton/src/main.cpp -o CMakeFiles/Serial_Skili_component.dir/src/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/null/stuff/robocon_2025/Serial_Bridge_Skeleton/src/main.cpp -o CMakeFiles/Serial_Skili_component.dir/src/main.cpp.s
 
 # Object files for target Serial_Skili_component
 Serial_Skili_component_OBJECTS = \
@@ -92,23 +92,60 @@ Serial_Skili_component_EXTERNAL_OBJECTS =
 
 Serial_Skili_component: CMakeFiles/Serial_Skili_component.dir/src/main.cpp.o
 Serial_Skili_component: CMakeFiles/Serial_Skili_component.dir/build.make
+Serial_Skili_component: /opt/ros/jazzy/lib/libsensor_msgs__rosidl_typesupport_fastrtps_c.so
+Serial_Skili_component: /opt/ros/jazzy/lib/libsensor_msgs__rosidl_typesupport_fastrtps_cpp.so
+Serial_Skili_component: /opt/ros/jazzy/lib/libsensor_msgs__rosidl_typesupport_introspection_c.so
+Serial_Skili_component: /opt/ros/jazzy/lib/libsensor_msgs__rosidl_typesupport_introspection_cpp.so
+Serial_Skili_component: /opt/ros/jazzy/lib/libsensor_msgs__rosidl_generator_py.so
+Serial_Skili_component: /opt/ros/jazzy/lib/libstatic_transform_broadcaster_node.so
+Serial_Skili_component: /opt/ros/jazzy/lib/libcomponent_manager.so
+Serial_Skili_component: /opt/ros/jazzy/lib/libsensor_msgs__rosidl_typesupport_c.so
+Serial_Skili_component: /opt/ros/jazzy/lib/libsensor_msgs__rosidl_typesupport_cpp.so
+Serial_Skili_component: /opt/ros/jazzy/lib/libsensor_msgs__rosidl_generator_c.so
+Serial_Skili_component: /opt/ros/jazzy/lib/libtf2_ros.so
+Serial_Skili_component: /opt/ros/jazzy/lib/libmessage_filters.so
+Serial_Skili_component: /opt/ros/jazzy/lib/librclcpp_action.so
+Serial_Skili_component: /opt/ros/jazzy/lib/librcl_action.so
+Serial_Skili_component: /opt/ros/jazzy/lib/libtf2.so
+Serial_Skili_component: /opt/ros/jazzy/lib/libtf2_msgs__rosidl_typesupport_fastrtps_c.so
+Serial_Skili_component: /opt/ros/jazzy/lib/libtf2_msgs__rosidl_typesupport_introspection_c.so
+Serial_Skili_component: /opt/ros/jazzy/lib/libtf2_msgs__rosidl_typesupport_fastrtps_cpp.so
+Serial_Skili_component: /opt/ros/jazzy/lib/libtf2_msgs__rosidl_typesupport_introspection_cpp.so
+Serial_Skili_component: /opt/ros/jazzy/lib/libtf2_msgs__rosidl_typesupport_cpp.so
+Serial_Skili_component: /opt/ros/jazzy/lib/libtf2_msgs__rosidl_generator_py.so
 Serial_Skili_component: /opt/ros/jazzy/lib/libgeometry_msgs__rosidl_typesupport_fastrtps_c.so
 Serial_Skili_component: /opt/ros/jazzy/lib/libgeometry_msgs__rosidl_typesupport_introspection_c.so
 Serial_Skili_component: /opt/ros/jazzy/lib/libgeometry_msgs__rosidl_typesupport_fastrtps_cpp.so
 Serial_Skili_component: /opt/ros/jazzy/lib/libgeometry_msgs__rosidl_typesupport_introspection_cpp.so
 Serial_Skili_component: /opt/ros/jazzy/lib/libgeometry_msgs__rosidl_typesupport_cpp.so
 Serial_Skili_component: /opt/ros/jazzy/lib/libgeometry_msgs__rosidl_generator_py.so
-Serial_Skili_component: /opt/ros/jazzy/lib/libcomponent_manager.so
 Serial_Skili_component: /opt/ros/jazzy/lib/libstd_msgs__rosidl_typesupport_fastrtps_c.so
 Serial_Skili_component: /opt/ros/jazzy/lib/libstd_msgs__rosidl_typesupport_fastrtps_cpp.so
 Serial_Skili_component: /opt/ros/jazzy/lib/libstd_msgs__rosidl_typesupport_introspection_c.so
 Serial_Skili_component: /opt/ros/jazzy/lib/libstd_msgs__rosidl_typesupport_introspection_cpp.so
 Serial_Skili_component: /opt/ros/jazzy/lib/libstd_msgs__rosidl_typesupport_cpp.so
 Serial_Skili_component: /opt/ros/jazzy/lib/libstd_msgs__rosidl_generator_py.so
+Serial_Skili_component: /opt/ros/jazzy/lib/libtf2_msgs__rosidl_typesupport_c.so
 Serial_Skili_component: /opt/ros/jazzy/lib/libgeometry_msgs__rosidl_typesupport_c.so
 Serial_Skili_component: /opt/ros/jazzy/lib/libstd_msgs__rosidl_typesupport_c.so
+Serial_Skili_component: /opt/ros/jazzy/lib/libtf2_msgs__rosidl_generator_c.so
 Serial_Skili_component: /opt/ros/jazzy/lib/libgeometry_msgs__rosidl_generator_c.so
 Serial_Skili_component: /opt/ros/jazzy/lib/libstd_msgs__rosidl_generator_c.so
+Serial_Skili_component: /opt/ros/jazzy/lib/libaction_msgs__rosidl_typesupport_fastrtps_c.so
+Serial_Skili_component: /opt/ros/jazzy/lib/libaction_msgs__rosidl_typesupport_fastrtps_cpp.so
+Serial_Skili_component: /opt/ros/jazzy/lib/libaction_msgs__rosidl_typesupport_introspection_c.so
+Serial_Skili_component: /opt/ros/jazzy/lib/libaction_msgs__rosidl_typesupport_introspection_cpp.so
+Serial_Skili_component: /opt/ros/jazzy/lib/libaction_msgs__rosidl_typesupport_cpp.so
+Serial_Skili_component: /opt/ros/jazzy/lib/libaction_msgs__rosidl_generator_py.so
+Serial_Skili_component: /opt/ros/jazzy/lib/libaction_msgs__rosidl_typesupport_c.so
+Serial_Skili_component: /opt/ros/jazzy/lib/libaction_msgs__rosidl_generator_c.so
+Serial_Skili_component: /opt/ros/jazzy/lib/libunique_identifier_msgs__rosidl_typesupport_fastrtps_c.so
+Serial_Skili_component: /opt/ros/jazzy/lib/libunique_identifier_msgs__rosidl_typesupport_introspection_c.so
+Serial_Skili_component: /opt/ros/jazzy/lib/libunique_identifier_msgs__rosidl_typesupport_fastrtps_cpp.so
+Serial_Skili_component: /opt/ros/jazzy/lib/libunique_identifier_msgs__rosidl_typesupport_introspection_cpp.so
+Serial_Skili_component: /opt/ros/jazzy/lib/libunique_identifier_msgs__rosidl_typesupport_cpp.so
+Serial_Skili_component: /opt/ros/jazzy/lib/libunique_identifier_msgs__rosidl_typesupport_c.so
+Serial_Skili_component: /opt/ros/jazzy/lib/libunique_identifier_msgs__rosidl_generator_c.so
 Serial_Skili_component: /opt/ros/jazzy/lib/librclcpp.so
 Serial_Skili_component: /opt/ros/jazzy/lib/liblibstatistics_collector.so
 Serial_Skili_component: /opt/ros/jazzy/lib/librcl.so
@@ -154,39 +191,39 @@ Serial_Skili_component: /opt/ros/jazzy/lib/librcl_interfaces__rosidl_typesupport
 Serial_Skili_component: /opt/ros/jazzy/lib/librcl_interfaces__rosidl_typesupport_introspection_cpp.so
 Serial_Skili_component: /opt/ros/jazzy/lib/librcl_interfaces__rosidl_typesupport_cpp.so
 Serial_Skili_component: /opt/ros/jazzy/lib/librcl_interfaces__rosidl_generator_py.so
+Serial_Skili_component: /opt/ros/jazzy/lib/libservice_msgs__rosidl_typesupport_fastrtps_c.so
+Serial_Skili_component: /opt/ros/jazzy/lib/libservice_msgs__rosidl_typesupport_fastrtps_cpp.so
+Serial_Skili_component: /opt/ros/jazzy/lib/libservice_msgs__rosidl_typesupport_introspection_c.so
+Serial_Skili_component: /opt/ros/jazzy/lib/libservice_msgs__rosidl_typesupport_introspection_cpp.so
+Serial_Skili_component: /opt/ros/jazzy/lib/libservice_msgs__rosidl_typesupport_cpp.so
 Serial_Skili_component: /opt/ros/jazzy/lib/libcomposition_interfaces__rosidl_typesupport_c.so
 Serial_Skili_component: /opt/ros/jazzy/lib/librcl_interfaces__rosidl_typesupport_c.so
 Serial_Skili_component: /opt/ros/jazzy/lib/libcomposition_interfaces__rosidl_generator_c.so
 Serial_Skili_component: /opt/ros/jazzy/lib/librcl_interfaces__rosidl_generator_c.so
-Serial_Skili_component: /opt/ros/jazzy/lib/libservice_msgs__rosidl_typesupport_fastrtps_c.so
-Serial_Skili_component: /opt/ros/jazzy/lib/libservice_msgs__rosidl_typesupport_introspection_c.so
-Serial_Skili_component: /opt/ros/jazzy/lib/libservice_msgs__rosidl_typesupport_fastrtps_cpp.so
-Serial_Skili_component: /opt/ros/jazzy/lib/libservice_msgs__rosidl_typesupport_introspection_cpp.so
-Serial_Skili_component: /opt/ros/jazzy/lib/libservice_msgs__rosidl_typesupport_cpp.so
 Serial_Skili_component: /opt/ros/jazzy/lib/libbuiltin_interfaces__rosidl_typesupport_fastrtps_c.so
 Serial_Skili_component: /opt/ros/jazzy/lib/librosidl_typesupport_fastrtps_c.so
-Serial_Skili_component: /opt/ros/jazzy/lib/libbuiltin_interfaces__rosidl_typesupport_introspection_c.so
 Serial_Skili_component: /opt/ros/jazzy/lib/libbuiltin_interfaces__rosidl_typesupport_fastrtps_cpp.so
 Serial_Skili_component: /opt/ros/jazzy/lib/librosidl_typesupport_fastrtps_cpp.so
+Serial_Skili_component: /opt/ros/jazzy/lib/libfastcdr.so.2.2.4
 Serial_Skili_component: /opt/ros/jazzy/lib/librmw.so
 Serial_Skili_component: /opt/ros/jazzy/lib/librosidl_dynamic_typesupport.so
-Serial_Skili_component: /opt/ros/jazzy/lib/libfastcdr.so.2.2.4
+Serial_Skili_component: /opt/ros/jazzy/lib/libbuiltin_interfaces__rosidl_typesupport_introspection_c.so
+Serial_Skili_component: /opt/ros/jazzy/lib/libservice_msgs__rosidl_typesupport_c.so
+Serial_Skili_component: /opt/ros/jazzy/lib/libservice_msgs__rosidl_generator_c.so
 Serial_Skili_component: /opt/ros/jazzy/lib/libbuiltin_interfaces__rosidl_typesupport_introspection_cpp.so
 Serial_Skili_component: /opt/ros/jazzy/lib/librosidl_typesupport_introspection_cpp.so
 Serial_Skili_component: /opt/ros/jazzy/lib/librosidl_typesupport_introspection_c.so
 Serial_Skili_component: /opt/ros/jazzy/lib/libbuiltin_interfaces__rosidl_typesupport_cpp.so
 Serial_Skili_component: /opt/ros/jazzy/lib/librosidl_typesupport_cpp.so
 Serial_Skili_component: /opt/ros/jazzy/lib/libbuiltin_interfaces__rosidl_generator_py.so
-Serial_Skili_component: /opt/ros/jazzy/lib/libservice_msgs__rosidl_typesupport_c.so
 Serial_Skili_component: /opt/ros/jazzy/lib/libbuiltin_interfaces__rosidl_typesupport_c.so
-Serial_Skili_component: /opt/ros/jazzy/lib/libservice_msgs__rosidl_generator_c.so
 Serial_Skili_component: /opt/ros/jazzy/lib/libbuiltin_interfaces__rosidl_generator_c.so
 Serial_Skili_component: /opt/ros/jazzy/lib/librosidl_typesupport_c.so
-Serial_Skili_component: /opt/ros/jazzy/lib/librcpputils.so
 Serial_Skili_component: /opt/ros/jazzy/lib/librosidl_runtime_c.so
+Serial_Skili_component: /opt/ros/jazzy/lib/librcpputils.so
 Serial_Skili_component: /opt/ros/jazzy/lib/librcutils.so
 Serial_Skili_component: CMakeFiles/Serial_Skili_component.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/light/robocon2025/ROS/src/Serial_Bridge_Skeleton/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable Serial_Skili_component"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/null/stuff/robocon_2025/Serial_Bridge_Skeleton/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable Serial_Skili_component"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Serial_Skili_component.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -198,6 +235,6 @@ CMakeFiles/Serial_Skili_component.dir/clean:
 .PHONY : CMakeFiles/Serial_Skili_component.dir/clean
 
 CMakeFiles/Serial_Skili_component.dir/depend:
-	cd /home/light/robocon2025/ROS/src/Serial_Bridge_Skeleton/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/light/robocon2025/ROS/src/Serial_Bridge_Skeleton /home/light/robocon2025/ROS/src/Serial_Bridge_Skeleton /home/light/robocon2025/ROS/src/Serial_Bridge_Skeleton/build /home/light/robocon2025/ROS/src/Serial_Bridge_Skeleton/build /home/light/robocon2025/ROS/src/Serial_Bridge_Skeleton/build/CMakeFiles/Serial_Skili_component.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/null/stuff/robocon_2025/Serial_Bridge_Skeleton/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/null/stuff/robocon_2025/Serial_Bridge_Skeleton /home/null/stuff/robocon_2025/Serial_Bridge_Skeleton /home/null/stuff/robocon_2025/Serial_Bridge_Skeleton/build /home/null/stuff/robocon_2025/Serial_Bridge_Skeleton/build /home/null/stuff/robocon_2025/Serial_Bridge_Skeleton/build/CMakeFiles/Serial_Skili_component.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/Serial_Skili_component.dir/depend
 

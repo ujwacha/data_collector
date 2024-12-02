@@ -11,6 +11,8 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
+find_package(sensor_msgs REQUIRED)
+find_package(tf2_ros REQUIRED)
 find_package(rclcpp_components REQUIRED)
 find_package(composition REQUIRED)
 
@@ -28,7 +30,7 @@ add_executable(Serial_Skili_component src/main.cpp)
 
 target_include_directories(Serial_Skili_component PUBLIC include/Serial_Bridge_Skeleton)
 
-ament_target_dependencies(Serial_Skili_component rclcpp std_msgs geometry_msgs rclcpp_components )
+ament_target_dependencies(Serial_Skili_component sensor_msgs tf2_ros rclcpp std_msgs geometry_msgs rclcpp_components )
 
 target_link_libraries(Serial_Skili_component serial)
 
