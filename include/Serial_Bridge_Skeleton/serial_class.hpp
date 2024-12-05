@@ -14,7 +14,7 @@
 #include <thread>
 #include <unistd.h> // for isatty()
 
-#define START_BYTE 0xA5
+#define START_BYTE 0xAA
 
 #pragma pack(push, 1)
 struct Twist_msg {
