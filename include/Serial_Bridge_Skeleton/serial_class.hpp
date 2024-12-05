@@ -15,6 +15,7 @@
 #include <unistd.h> // for isatty()
 
 #define START_BYTE 0xAA
+#define END_BYTE 0xBB
 
 #pragma pack(push, 1)
 struct Twist_msg {
@@ -36,6 +37,7 @@ struct Twist_msg {
   // uint8_t zz;
 
   // end byte and crc
+  //uint8_t end_byte;
   uint8_t crc;
 };
 
@@ -141,6 +143,7 @@ bool verify_communication(void *d, size_t size) {
 void make_sendable_with_metadata(Twist_msg &c) {
   c.start_byte = START_BYTE;
   c.crc = calculate_cr8x_fast((uint8_t *)&c, sizeof(c) - sizeof(c.crc));
+  //  c.end_byte = END_BYTE;
 }
 
 bool isDeviceConnected(LibSerial::SerialPort &serial_port) {

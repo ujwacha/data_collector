@@ -67,8 +67,8 @@ namespace Serial_Bridge_Skeleton {
       pubtimer = this->create_wall_timer(std::chrono::milliseconds(10),
 					 std::bind(&Sayer::publish_data, this));
 
-      // sendtimer = this->create_wall_timer(std::chrono::milliseconds(10),
-      // 					  std::bind(&Sayer::send_data, this));
+      sendtimer = this->create_wall_timer(std::chrono::milliseconds(10),
+       					  std::bind(&Sayer::send_data, this));
 
     }
 
