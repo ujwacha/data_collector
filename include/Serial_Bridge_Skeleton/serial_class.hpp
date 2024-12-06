@@ -1,18 +1,14 @@
 #include <cstddef>
 #include <cstdint>
 #include <cstring>
-#include <ios>
-#include <iostream>
 #include <libserial/SerialPort.h>
 #include <libserial/SerialPortConstants.h>
-#include <ostream>
 #include <string>
+#include <iostream>
+#include <stdlib.h>
 
 #include <chrono>
-#include <fcntl.h> // for checking descriptor flags
-#include <sys/types.h>
 #include <thread>
-#include <unistd.h> // for isatty()
 
 #define START_BYTE 0xAA
 #define END_BYTE 0xBB
@@ -26,18 +22,6 @@ struct Twist_msg {
   float y;
   float omega;
 
-  // Vector For Shooter
-  // uint8_t ax;
-  // uint8_t ay;
-  // uint8_t az;
-  //
-  // // Position of Catcher
-  // uint8_t on_off;
-  // uint8_t theta;
-  // uint8_t zz;
-
-  // end byte and crc
-  //uint8_t end_byte;
   uint8_t crc;
 };
 
@@ -57,19 +41,12 @@ struct ImuData {
 
 #pragma pack(pop)
 
+
 void print_twist(Twist_msg cd) {
   std::cout << "####COMMUNICATIONDATA####" << std::endl
             << "x:\t" << (int)cd.x << std::endl
             << "y:\t" << (int)cd.y << std::endl
             << "omega:\t" << (int)cd.omega << std::endl;
-  // << "ax:\t" << (int)cd.ax << std::endl
-  // << "ay:\t" << (int)cd.ay << std::endl
-  // << "az:\t" << (int)cd.az << std::endl
-  // << "on_off:\t" << (int)cd.on_off << std::endl
-  // << "theta:\t" << (int)cd.theta << std::endl
-  // << "zz:\t" << (int)cd.zz << std::endl;
-
-  //  std::cout << "DATA IN" << std::endl;
 }
 
 void print_imu_data(ImuData imu) {
@@ -85,8 +62,10 @@ void print_imu_data(ImuData imu) {
 enum State {
   START_BYTE_FOUND,
   START_BYTE_NOT_FOUND,
-  NO_PORT,
+  
 };
+
+
 
 const uint8_t crc8x_table[256] = {
     0x00, 0x31, 0x62, 0x53, 0xC4, 0xF5, 0xA6, 0x97, 0xB9, 0x88, 0xDB, 0xEA,
@@ -120,214 +99,107 @@ uint8_t calculate_cr8x_fast(uint8_t *data, size_t len) {
   return crc;
 }
 
-/**
- * @brief Function to verify communication for any kind of struct.
- *
- * @param d Pointer of struct containing message
- * @param size Size of the struct
- * @return True if communication is correct
- */
-bool verify_communication(void *d, size_t size) {
-
-  if (*(uint8_t *)d != START_BYTE)
-    return false;
-
-  uint8_t current_crc = calculate_cr8x_fast((uint8_t *)d, size - 1);
-
-  if (((uint8_t *)d)[size - 1] != current_crc)
-    return false;
-
-  return true;
-}
 
 void make_sendable_with_metadata(Twist_msg &c) {
   c.start_byte = START_BYTE;
   c.crc = calculate_cr8x_fast((uint8_t *)&c, sizeof(c) - sizeof(c.crc));
-  //  c.end_byte = END_BYTE;
+  //c.end_byte = END_BYTE;
 }
 
-bool isDeviceConnected(LibSerial::SerialPort &serial_port) {
-  try {
-    bool a = isatty(serial_port.GetFileDescriptor());
 
-    return a;
-  } catch (...) {
-    return false;
-  }
+
+bool verify_communication(void *d, size_t size) {
+
+	if (*(uint8_t *)d != START_BYTE) return false;
+
+	uint8_t current_crc = calculate_cr8x_fast((uint8_t*)d, size - 1);
+
+
+	if (((uint8_t*)d)[size - 1] != current_crc) {
+	  std::cout <<  ((uint8_t*)d)[size - 1] << "     " << current_crc << std::endl;
+ 	  std::cout << "FALSEEEEEE" << std::endl;	
+	  return false;
+	} 
+
+	return true;
+
 }
+
+
+
+
+
 
 class BridgeClass {
-public:
-  BridgeClass(std::string _port) : port(_port), err_sum(0) { try_init(); }
-
-  ~BridgeClass() { close(); }
-
-  void try_init() {
-    std::cout << "try_init" << std::endl;
-    
-    // if (isDeviceConnected(Bridge))
-    //   return;
-
-    try {
-      init();
-      current_state = START_BYTE_NOT_FOUND;
-    } catch (const LibSerial::OpenFailed &e) {
-      std::cout << "[ERROR]:" << e.what() << std::endl;
-      current_state = NO_PORT;
-    } catch (const LibSerial::AlreadyOpen &e) {
-      std::cout << "[ERROR]:" << e.what() << std::endl;
-      current_state = START_BYTE_NOT_FOUND;
-    } catch (const LibSerial::NotOpen &e) {
-      std::cout << "[ERROR]:" << e.what() << std::endl;
-      current_state = NO_PORT;
-    } catch (const LibSerial::ReadTimeout &e) {
-      std::cout << "[ERROR]:" << e.what() << std::endl;
-    } catch (...) {
-      std::cout << "[ERROR]: on line 179" << std::endl;
-    }
-  }
-
-  void init() {
-    std::cout << "init" << std::endl;
-    
-
-    if (Bridge.IsOpen())
-      return;
-
-    Bridge.Open(port, std::ios_base::in | std::ios_base::out);
-
+  public:
+  BridgeClass(std::string port): Bridge(port) {
     Bridge.SetBaudRate(LibSerial::BaudRate::BAUD_115200);
-
+    
     Bridge.SetCharacterSize(LibSerial::CharacterSize::CHAR_SIZE_8);
-
+    
     Bridge.SetFlowControl(LibSerial::FlowControl::FLOW_CONTROL_NONE);
-
+    
     Bridge.SetParity(LibSerial::Parity::PARITY_NONE);
 
     current_state = START_BYTE_NOT_FOUND;
+
   }
 
-  void close() {
-    std::cout << "close" << std::endl;
-    
-    try {
-      if (Bridge.IsOpen()) {
-        Bridge.Close();
-      }
-    } catch (const LibSerial::OpenFailed &e) {
-      std::cout << "[ERROR]:" << e.what() << std::endl;
-      current_state = NO_PORT;
-    } catch (const LibSerial::AlreadyOpen &e) {
-      std::cout << "[ERROR]:" << e.what() << std::endl;
-      current_state = START_BYTE_NOT_FOUND;
-    } catch (const LibSerial::NotOpen &e) {
-      std::cout << "[ERROR]:" << e.what() << std::endl;
-      current_state = NO_PORT;
-    } catch (...) {
-      std::cout << "[ERROR]: Some Random Error" << std::endl;
-      current_state = NO_PORT;
-    }
+  ~BridgeClass() {
+    Bridge.Close();
   }
 
-  void read_timeout_process(bool to_close = true) {
-    std::cout << "read_timeout_process" << std::endl;
-    
-    std::cout << "[ERROR] Exceded Time limit 10ms to read Buffer "
-                  << std::endl;
-        err_sum += 1;
-
-        if (err_sum > 10) {
-          err_sum = 0;
-          current_state = NO_PORT;
-	  if (to_close) {
-	    close();
-	  }
-        }
-  }
 
   ImuData attempt_get_non_blocking() {
-    std::cout << "attempt_get_non_blocking" << std::endl;
-    
     // Clear The Buffer
     memset(&Buffer, 0, sizeof(Buffer));
     byte_buffer = 0x00;
-
+    
     switch (current_state) {
-    case NO_PORT:
-      std::cout << "NO_PORT" << std::endl;
-      try_init();
-      break;
-
     case START_BYTE_FOUND:
-      std::cout << "START_BYTE_FOUND" << std::endl;
       current_state = START_BYTE_NOT_FOUND;
 
       Buffer.start_byte = START_BYTE;
       DataBufferFromLib.resize(sizeof(Buffer) - sizeof(Buffer.start_byte));
 
       try {
-        Bridge.Read(DataBufferFromLib,
-                    sizeof(Buffer) - sizeof(Buffer.start_byte),
-                    10); // buffer , size , timeout_ms
-      } catch (const LibSerial::ReadTimeout &e) {
-	read_timeout_process();
-      } catch (const LibSerial::NotOpen &e) {
-        std::cout << "ERROR: " << e.what() << std::endl;
-        current_state = NO_PORT;
+	
+	Bridge.Read(DataBufferFromLib, sizeof(Buffer) - sizeof(Buffer.start_byte), 10); // buffer , size , timeout_ms
       } catch (...) {
-        std::cout << "[ERROR]: some random error on line 256 serial_class.hpp";
-      }
-      if (DataBufferFromLib.size() !=
-          sizeof(Buffer) - sizeof(Buffer.start_byte)) {
-        std::cout << "[URGENT] BUFFER SIZE DOES NOT MATCH" << std::endl;
-        //current_state = NO_PORT;
-	//close();
+	std::cout << "[ERROR] Exceded Time limit 10ms to read Buffer " << std::endl;
       }
 
-      std::memcpy(&(Buffer.yaw), DataBufferFromLib.data(),
-                  sizeof(Buffer) - sizeof(Buffer.start_byte)); //
+
+      if (DataBufferFromLib.size() != sizeof(Buffer) - sizeof(Buffer.start_byte))
+	std::cout << "[URGENT] BUFFER SIZE DOES NOT MATCH" << std::endl;
+      std::memcpy(&(Buffer.yaw), DataBufferFromLib.data(), sizeof(Buffer) - sizeof(Buffer.start_byte)); //
+      //      std::memcpy(&(Buffer.d), DataBufferFromLib.data(), sizeof(Buffer) - sizeof(Buffer.start_byte)); //
       DataBufferFromLib.clear(); // Clean the buffer
 
-      if (!verify_communication(&Buffer, sizeof(Buffer)))
-        throw -2;
-      else
-        return Buffer;
+      if (!verify_communication(&Buffer, sizeof(Buffer))) throw -2;
+      else return Buffer;
       break;
 
     case START_BYTE_NOT_FOUND:
-      std::cout << "START_BYTE_NOT_FOUND" << std::endl;
 
       try {
-        Bridge.ReadByte(byte_buffer, 2); // timeout_ms
-	if (byte_buffer == START_BYTE)
-	  current_state = START_BYTE_FOUND;
-
-
-      } catch (const LibSerial::ReadTimeout &e) {
-	read_timeout_process();
-      } catch (const LibSerial::NotOpen &e) {
-        std::cout << "ERROR: " << e.what() << std::endl;
-        current_state = NO_PORT;
+	Bridge.ReadByte(byte_buffer, 3);
       } catch (...) {
-	read_timeout_process(false);
-	current_state = NO_PORT;
-        std::cout << "[ERROR]: some random error on line 288 serial_class.hpp";
+	std::cout << "[ERROR] Error Occoured While Reading Byte" << std::endl;
       }
 
+      if (byte_buffer == START_BYTE) current_state = START_BYTE_FOUND;
       throw -1;
       break;
     }
-
+    
     // You Will Never Reach Here;
     return Buffer;
   }
-
   bool attempt_send_probably_blocking(Twist_msg d) {
     std::cout << "attempt_send_probably_blocking" << std::endl;
     
     if (!verify_communication(&d, sizeof(d)))
-      return false;
-    if (current_state == NO_PORT)
       return false;
 
     DataBufferFromLib.clear();
@@ -336,12 +208,11 @@ public:
 
     try {
       Bridge.Write(DataBufferFromLib);
-
-      read_timeout_process();
     } catch (const LibSerial::NotOpen &e) {
       std::cout << "[ERROR]: " << e.what() << std::endl;
-      current_state = NO_PORT;
     } catch (const LibSerial::AlreadyOpen &e) {
+      std::cout << "[ERROR]: " << e.what() << std::endl;
+    } catch (const LibSerial::ReadTimeout &e)  {
       std::cout << "[ERROR]: " << e.what() << std::endl;
     } catch (...) {
       std::cout << "[ERROR]: some random error on line 329 serial_class.hpp";
@@ -350,20 +221,23 @@ public:
     return true;
   }
 
-  void drian_attempt_blocking() { Bridge.DrainWriteBuffer(); }
+  void drian_attempt_blocking() {
+    Bridge.DrainWriteBuffer();
+  }
+  
+  private:
 
-private:
-  std::string port;
 
   LibSerial::DataBuffer DataBufferFromLib;
 
   ImuData Buffer;
-
+  
   LibSerial::SerialPort Bridge;
 
   enum State current_state;
 
-  int err_sum;
-
   uint8_t byte_buffer;
+  
 };
+
+
