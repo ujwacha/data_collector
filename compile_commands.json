@@ -4,7 +4,7 @@
       "/usr/bin/c++",
       "-DDEFAULT_RMW_IMPLEMENTATION=rmw_fastrtps_cpp",
       "-DFASTCDR_DYN_LINK",
-      "-I/home/light/robocon2025/ROS/src/Serial_Bridge_Skeleton/include/Serial_Bridge_Skeleton",
+      "-I/home/himal/stuff/robocon_2025/Serial_Bridge_Skeleton/serial_port",
       "-isystem",
       "/opt/ros/jazzy/include/sensor_msgs",
       "-isystem",
@@ -91,10 +91,10 @@
       "-c",
       "-o",
       "CMakeFiles/Serial_Skili_component.dir/src/main.cpp.o",
-      "/home/light/robocon2025/ROS/src/Serial_Bridge_Skeleton/src/main.cpp"
+      "/home/himal/stuff/robocon_2025/Serial_Bridge_Skeleton/src/main.cpp"
     ],
-    "directory": "/home/light/robocon2025/ROS/src/Serial_Bridge_Skeleton/build",
-    "file": "/home/light/robocon2025/ROS/src/Serial_Bridge_Skeleton/src/main.cpp",
-    "output": "/home/light/robocon2025/ROS/src/Serial_Bridge_Skeleton/build/CMakeFiles/Serial_Skili_component.dir/src/main.cpp.o"
+    "directory": "/home/himal/stuff/robocon_2025/Serial_Bridge_Skeleton/build",
+    "file": "/home/himal/stuff/robocon_2025/Serial_Bridge_Skeleton/src/main.cpp",
+    "output": "/home/himal/stuff/robocon_2025/Serial_Bridge_Skeleton/build/CMakeFiles/Serial_Skili_component.dir/src/main.cpp.o"
   }
 ]

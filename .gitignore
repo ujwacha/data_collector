@@ -1,5 +1,8 @@
-/build/
-/include/Serial_Bridge_Skeleton/serial_test.hpp
-/include/Serial_Bridge_Skeleton/serial_test.hpp~
-/.cache/clangd/index/serial_class.hpp.57C0C02651E4F43D.idx
-/.cache/clangd/index/main.cpp.777706821244D997.idx
+build/
+*~
+TAGS
+update_source_files.sh
+compile_commands.json
+included_files.txt
+.cache/
+log/

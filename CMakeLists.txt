@@ -28,7 +28,7 @@ include_directories(${SERIAL_INCLUDE_DIR})
 add_executable(Serial_Skili_component src/main.cpp)
 #target_compile_definitions(Serial_Skili PRIVATE "COMPOSITION_BUILDING_DLL")
 
-target_include_directories(Serial_Skili_component PUBLIC include/Serial_Bridge_Skeleton)
+target_include_directories(Serial_Skili_component PUBLIC serial_port)
 
 ament_target_dependencies(Serial_Skili_component sensor_msgs tf2_ros rclcpp std_msgs geometry_msgs rclcpp_components )
 
