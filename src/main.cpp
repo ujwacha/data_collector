@@ -64,9 +64,9 @@ namespace Serial_Bridge_Skeleton {
 
     // Global communicationdata to send to
     int edited = 0;
-    Twist_msg glosend;
+    Twist_msg twist_msg;
 
-    ImuData c;
+    ImuData imu_data;
     int times = 0;
 
   public:
@@ -103,7 +103,8 @@ namespace Serial_Bridge_Skeleton {
 
     void get_data() {
 
-      ReadStatus read_status = bridge.receive_data((uint8_t *)&c, sizeof(c));
+      ReadStatus read_status =
+        bridge.receive_data((uint8_t *)&imu_data, sizeof(imu_data));
       switch (read_status) {
         case ReadStatus::READ_TIMEOUT:
           RCLCPP_ERROR(this->get_logger(), "Read Timeout");
@@ -137,12 +138,12 @@ namespace Serial_Bridge_Skeleton {
       auto current_time = this->now();
 
       geometry_msgs::msg::Quaternion imu_quaternion;
-      double cr = cos(c.roll * 0.5);
-      double sr = sin(c.roll * 0.5);
-      double cp = cos(c.pitch * 0.5);
-      double sp = sin(c.pitch * 0.5);
-      double cy = cos(c.yaw * 0.5);
-      double sy = sin(c.yaw * 0.5);
+      double cr = cos(imu_data.roll * 0.5);
+      double sr = sin(imu_data.roll * 0.5);
+      double cp = cos(imu_data.pitch * 0.5);
+      double sp = sin(imu_data.pitch * 0.5);
+      double cy = cos(imu_data.yaw * 0.5);
+      double sy = sin(imu_data.yaw * 0.5);
 
       // Quaternion computation
       imu_quaternion.w = cr * cp * cy + sr * sp * sy;
@@ -151,9 +152,9 @@ namespace Serial_Bridge_Skeleton {
       imu_quaternion.z = cr * cp * sy - sr * sp * cy;
 
       geometry_msgs::msg::Vector3 accel;
-      accel.x = c.accel_x;
-      accel.y = c.accel_y;
-      accel.z = c.accel_z;
+      accel.x = imu_data.accel_x;
+      accel.y = imu_data.accel_y;
+      accel.z = imu_data.accel_z;
 
       auto msg = sensor_msgs::msg::Imu();
 
@@ -179,9 +180,9 @@ namespace Serial_Bridge_Skeleton {
 
       RCLCPP_INFO(this->get_logger(), "sent 10000 messages");
 
-      glosend.x = msg->linear.x;
-      glosend.y = msg->linear.y;
-      glosend.z = msg->angular.z;
+      twist_msg.x = msg->linear.x;
+      twist_msg.y = msg->linear.y;
+      twist_msg.z = msg->angular.z;
 
       edited++;
     }
@@ -192,7 +193,7 @@ namespace Serial_Bridge_Skeleton {
 
       edited = 0;
       WriteStatus write_status =
-        bridge.write_data((uint8_t *)&glosend, sizeof(glosend));
+        bridge.write_data((uint8_t *)&twist_msg, sizeof(twist_msg));
 
       switch (write_status) {
         case WriteStatus::PORT_NOT_OPEN:
