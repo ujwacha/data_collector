@@ -11,6 +11,7 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
+find_package(nav_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(tf2_ros REQUIRED)
 find_package(rclcpp_components REQUIRED)
@@ -23,33 +24,29 @@ include_directories(${SERIAL_INCLUDE_DIR})
 
 # Add include directories
 
-# add_library(Serial_Skili_component SHARED src/main.cpp)
+# add_library(data_publisher SHARED src/main.cpp)
 
-add_executable(Serial_Skili_component src/main.cpp)
+add_executable(data_publisher src/main.cpp)
 #target_compile_definitions(Serial_Skili PRIVATE "COMPOSITION_BUILDING_DLL")
 
-target_include_directories(Serial_Skili_component PUBLIC serial_port)
-
-ament_target_dependencies(Serial_Skili_component sensor_msgs tf2_ros rclcpp std_msgs geometry_msgs rclcpp_components )
-
-target_link_libraries(Serial_Skili_component serial)
+ament_target_dependencies(data_publisher nav_msgs sensor_msgs tf2_ros rclcpp std_msgs geometry_msgs rclcpp_components )
 
 
 # rclcpp_components_register_node(
-#   Serial_Skili_component 
+#   data_publisher 
 #   PLUGIN "Serial_Bridge_Skeleton::Sayer"
 #   EXECUTABLE Serial_Skili 
 #   )
 
 
 
-# ament_export_targets(export_Serial_Skili_component)
+# ament_export_targets(export_data_publisher)
 
 
 
 install(TARGETS
-  Serial_Skili_component 
-# EXPORT export_Serial_Skili_component
+  data_publisher 
+# EXPORT export_data_publisher
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION bin
